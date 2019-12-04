@@ -33,6 +33,8 @@ namespace WebAPISample.Controllers
         }
 
         // POST api/values
+
+        [HttpPost]
         public void Post([FromBody]Movie movie)
         {
             context.Movies.Add(movie);
