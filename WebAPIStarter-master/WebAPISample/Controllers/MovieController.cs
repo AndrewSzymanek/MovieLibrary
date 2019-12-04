@@ -25,36 +25,28 @@ namespace WebAPISample.Controllers
         //GET api/values/5
 
         [HttpGet]
-        public IHttpActionResult Get(int movieId)
+        public IHttpActionResult Get(int id)
         {
             // Retrieve movie by id from db logic
-            Movie specificMovie = context.Movies.Where(m => m.MovieId == movieId).FirstOrDefault();         
+            Movie specificMovie = context.Movies.Where(m => m.MovieId == id).FirstOrDefault();         
             return Ok(specificMovie);
         }
 
         // POST api/values
         public void Post([FromBody]Movie movie)
         {
-            List<Movie> movies = context.Movies.ToList();
-            movies.Add(movie);
+            context.Movies.Add(movie);
+            context.SaveChanges();
             // Create movie in db logic
         }
 
         // PUT api/values/5
         public void Put(int id, [FromBody]Movie movie)
         {
-            List<Movie> movies = context.Movies.ToList();
-            movies[id] = movie;
+            Movie movieToChange = context.Movies.Where(m => m.MovieId == id).SingleOrDefault();
+            movieToChange = movie;
+            context.SaveChanges();
             // Update movie in db logic
         }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-            List<Movie> movies = context.Movies.ToList();
-            movies.RemoveAt(id);
-            // Delete movie from db logic
-        }
     }
-
 }
