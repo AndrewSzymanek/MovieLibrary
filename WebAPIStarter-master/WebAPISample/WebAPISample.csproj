@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201912041632299_AddedPrimaryKeyMovieId.Designer.cs">
       <DependentUpon>201912041632299_AddedPrimaryKeyMovieId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912042037496_SeededDbInfo.cs" />
+    <Compile Include="Migrations\201912042037496_SeededDbInfo.Designer.cs">
+      <DependentUpon>201912042037496_SeededDbInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -355,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912041632299_AddedPrimaryKeyMovieId.resx">
       <DependentUpon>201912041632299_AddedPrimaryKeyMovieId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912042037496_SeededDbInfo.resx">
+      <DependentUpon>201912042037496_SeededDbInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

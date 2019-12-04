@@ -13,22 +13,23 @@ namespace WebAPISample.Controllers
         public ApplicationDbContext context = new ApplicationDbContext();
 
         // GET api/movie
-        
-     
+
+        [HttpGet]
         public IEnumerable<Movie> Get()
         {
             // Retrieve all movies from db logic 
-            List<Movie> movies = context.Movies.ToList();          
-                   
+            List<Movie> movies = context.Movies.ToList();
             return movies;
         }
 
-        // GET api/values/5
-        public Movie Get(int movieId)
+        //GET api/values/5
+
+        [HttpGet]
+        public IHttpActionResult Get(int movieId)
         {
-            Movie specificMovie = context.Movies.Where(m => m.MovieId == movieId).FirstOrDefault();
             // Retrieve movie by id from db logic
-            return specificMovie;
+            Movie specificMovie = context.Movies.Where(m => m.MovieId == movieId).FirstOrDefault();         
+            return Ok(specificMovie);
         }
 
         // POST api/values
