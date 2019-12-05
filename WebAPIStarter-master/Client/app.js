@@ -2,6 +2,7 @@
     function processForm( e ){
         var dict = {
         	Title : this["title"].value,
+          Genre : this["genre"].value,
         	Director: this["director"].value
         };
 
@@ -24,3 +25,5 @@
 
     $('#my-form').submit( processForm );
 })(jQuery);
+
+$.post("From Body", movie, Post(Movie movie))
