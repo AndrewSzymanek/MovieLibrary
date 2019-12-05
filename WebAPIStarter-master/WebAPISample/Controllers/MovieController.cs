@@ -32,7 +32,7 @@ namespace WebAPISample.Controllers
             return Ok(specificMovie);
         }
 
-        // POST api/values
+        // POST api/movie
 
         [HttpPost]
         public void Post([FromBody]Movie movie)
@@ -42,11 +42,16 @@ namespace WebAPISample.Controllers
             // Create movie in db logic
         }
 
-        // PUT api/values/5
+        // PUT api/movie/5
         public void Put(int id, [FromBody]Movie movie)
         {
             Movie movieToChange = context.Movies.Where(m => m.MovieId == id).SingleOrDefault();
-            movieToChange = movie;
+            if(movieToChange != null)
+            {
+                movieToChange.Title = movie.Title;
+                movieToChange.Genre = movie.Genre;
+                movieToChange.Director = movie.Director;
+            }
             context.SaveChanges();
             // Update movie in db logic
         }
