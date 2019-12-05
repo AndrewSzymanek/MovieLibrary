@@ -31,14 +31,21 @@
       $.ajax({
         type: 'get',
         url: 'https://localhost:44352/api/movie',
+        dataType: 'json',
         success: function(data){
           $('#allMoviesTable').empty();
           $('#allMoviesTable').append('<tr><th>Title</<th><th>Genre</th><th>Director</th><tr>');
-          $.each(Movies, function(i, item){
-            $('#allMoviesTable').append(<tr>'<td>data[i].Title</td>' '<td>data[i].Genre</td>' '<td>data[i].Director</td>'</tr>)
-          })
-        }
-      })
+          $.each(Movies, function(index, value){
+            $('#allMoviesTable').append(
+              "<tr>" +
+                "<td>" +value.Title+ "</td>"+
+                "<td>" +value.Genre+ "</td>"+
+                "<td>" value.Director+ "</td>"+
+              "</tr>"
+            );
+          });
+        });
+      });
     }
         $('#allMoviesTable').submit( processForm );
 
