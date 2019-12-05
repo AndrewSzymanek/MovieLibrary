@@ -1,5 +1,5 @@
 (function($){
-    function processForm( e ){
+    function postNewMovie( e ){
         var dict = {
         	Title : this["title"].value,
           Genre : this["genre"].value,
@@ -15,6 +15,7 @@
             success: function( data, textStatus, jQxhr ){
                 $('#response pre').html( data );
             },
+            //add display code here
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
@@ -26,4 +27,4 @@
     $('#my-form').submit( processForm );
 })(jQuery);
 
-$.post("From Body", movie, Post(Movie movie))
+//$.post("From Body", movie, Post(Movie movie))
