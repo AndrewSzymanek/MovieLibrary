@@ -28,23 +28,20 @@
 
 
     $(function getAllMovies(){
+
       $.ajax({
         type: 'get',
         url: 'https://localhost:44352/api/movie',
         dataType: 'json',
         success: function(data){
-          $('#allMoviesTable').empty();
-          $('#allMoviesTable').append('<tr><th>Title</<th><th>Genre</th><th>Director</th><tr>');
-          $.each(Movies, function(index, value){
-            $('#allMoviesTable').append(
-              "<tr>" +
-                "<td>" +value.Title+ "</td>"+
-                "<td>" +value.Genre+ "</td>"+
-                "<td>" value.Director+ "</td>"+
-              "</tr>"
-            );
-          });
-        });
+            // $('.tableBody').empty();
+          // $('#allMoviesTable').append("<tr><th>" + Title+ "</th><th>" + Genre+ "</th><th>"+ Director+ "</th></tr>");
+          $.each(data, function(index, value){
+            $('.tableBody').append(
+              '<tr><td>' + value.Title +'</td>,<td>' + value.Genre +'</td>,<td>' +  value.Director + '</td></tr>'
+            )
+          })
+        }
       });
     }
         $('#allMoviesTable').submit( processForm );
